@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>HLAPSE</title>
+  
+  <subtitle>永远相信美好的事情即将发生</subtitle>
+  <link href="https://hlapse.top/atom.xml" rel="self"/>
+  
+  <link href="https://hlapse.top/"/>
+  <updated>2021-04-20T11:17:07.412Z</updated>
+  <id>https://hlapse.top/</id>
+  
+  <author>
+    <name>hlapse</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>README</title>
+    <link href="https://hlapse.top/2020/03/22/README/"/>
+    <id>https://hlapse.top/2020/03/22/README/</id>
+    <published>2020-03-22T11:04:44.000Z</published>
+    <updated>2021-04-20T11:17:07.412Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>给博客也添加一个README文档🙃</p><p><a href="/gallery">相册</a>：应该会有首页图片(<del>没做好😁</del>)(终于可以用了🙃)</p><p><a href="/journal">日志</a>：博客变动及个人动态</p><p><a href="/about">关于</a>：可能偶尔会更新这个页面</p>]]></content>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo部署并保存博客源代码</title>
+    <link href="https://hlapse.top/2020/03/06/Hexo%E9%83%A8%E7%BD%B2%E5%B9%B6%E4%BF%9D%E5%AD%98%E5%8D%9A%E5%AE%A2%E6%BA%90%E4%BB%A3%E7%A0%81/"/>
+    <id>https://hlapse.top/2020/03/06/Hexo%E9%83%A8%E7%BD%B2%E5%B9%B6%E4%BF%9D%E5%AD%98%E5%8D%9A%E5%AE%A2%E6%BA%90%E4%BB%A3%E7%A0%81/</id>
+    <published>2020-03-06T15:58:38.000Z</published>
+    <updated>2021-04-20T11:17:07.412Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><img src="/2020/03/06/Hexo%E9%83%A8%E7%BD%B2%E5%B9%B6%E4%BF%9D%E5%AD%98%E5%8D%9A%E5%AE%A2%E6%BA%90%E4%BB%A3%E7%A0%81/actions.png" class="" title="actions"><p>尝试使用更简单的博客部署方式</p><a id="more"></a><h2 id="Github-Actions"><a href="#Github-Actions" class="headerlink" title="Github Actions"></a>Github Actions</h2><p>使用Github Actions当推送更新博客源码时进行部署，是现在能做到的最简单的方式了，还可以不用配置环境</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 又因为懒想试一试使用Github Actions 进行博客部署</span></span><br><span class="line"><span class="comment"># 参考 https://athorx.com/archives/17/</span></span><br><span class="line"></span><br><span class="line"><span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">Blog</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  [<span class="string">push</span>] <span class="comment">#当推送更新时进行</span></span><br><span class="line">  </span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span> <span class="comment"># 大佬说的一项叫做build的任务</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span> <span class="comment"># 使用Ubuntu最新版</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Checkout</span> <span class="comment"># 将仓库内master分支的内容下载到工作目录</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Use</span> <span class="string">Node.js</span> <span class="number">13.</span><span class="string">x</span> <span class="comment"># 配置Node环境</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/setup-node@v1</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">node-version:</span> <span class="number">13.</span><span class="string">x</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Setup</span> <span class="string">git</span> <span class="comment"># 配置git以及密钥</span></span><br><span class="line">      <span class="attr">env:</span></span><br><span class="line">        <span class="attr">ACTION_DEPLOY_KEY:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.ACTION_DEPLOY_KEY</span> <span class="string">&#125;&#125;</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">        <span class="comment"># set up private key for deploy</span></span><br><span class="line">        <span class="string">mkdir</span> <span class="string">-p</span> <span class="string">~/.ssh/</span></span><br><span class="line">        <span class="string">echo</span> <span class="string">&quot;$ACTION_DEPLOY_KEY&quot;</span> <span class="string">|</span> <span class="string">tr</span> <span class="string">-d</span> <span class="string">&#x27;\r&#x27;</span> <span class="string">&gt;</span> <span class="string">~/.ssh/id_rsa</span> <span class="comment"># 配置秘钥</span></span><br><span class="line">        <span class="string">chmod</span> <span class="number">600</span> <span class="string">~/.ssh/id_rsa</span></span><br><span class="line">        <span class="string">ssh-keyscan</span> <span class="string">github.com</span> <span class="string">&gt;&gt;</span> <span class="string">~/.ssh/known_hosts</span></span><br><span class="line">        <span class="string">ssh-keyscan</span> <span class="string">gitee.com</span> <span class="string">&gt;&gt;</span> <span class="string">~/.ssh/known_hosts</span></span><br><span class="line">        <span class="comment"># set git infomation</span></span><br><span class="line">        <span class="string">git</span> <span class="string">config</span> <span class="string">--global</span> <span class="string">user.name</span> <span class="string">&#x27;hlapse&#x27;</span> <span class="comment"># 换成你自己的邮箱和名字</span></span><br><span class="line">        <span class="string">git</span> <span class="string">config</span> <span class="string">--global</span> <span class="string">user.email</span> <span class="string">&#x27;me@hlapse.top&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Setup</span> <span class="string">hexo</span> <span class="string">and</span> <span class="string">Install</span> <span class="string">dependencies</span> <span class="comment"># 配置Hexo以及安装依赖</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">        <span class="string">sudo</span> <span class="string">yarn</span> <span class="string">global</span> <span class="string">add</span> <span class="string">hexo-cli</span></span><br><span class="line">        <span class="string">yarn</span> <span class="string">install</span></span><br><span class="line">        <span class="comment"># 这一步是修改萌萌哒模型，将人物头发修改为黑色</span></span><br><span class="line">        <span class="string">cp</span> <span class="string">./texture_00.png</span> <span class="string">./node_modules/live2d-widget-model-hibiki/assets/moc/hibiki.2048/</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Deploy</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">        <span class="comment"># publish</span></span><br><span class="line">        <span class="string">hexo</span> <span class="string">generate</span> <span class="string">&amp;&amp;</span> <span class="string">hexo</span> <span class="string">deploy</span> <span class="comment"># 执行部署程序</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="Shell脚本"><a href="#Shell脚本" class="headerlink" title="Shell脚本"></a>Shell脚本</h2><p>为了方便hexo部署与保存博客源码（懒），写了一个超简单的脚本，以后再慢慢完善吧(不会完善了，Github Actions真好用😀)</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> author: hlapse</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> url: hlapse.top</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Delopy</span></span><br><span class="line">echo &quot;Delopy Start！&quot;</span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br><span class="line">echo &quot;Hexo部署完成&quot;</span><br><span class="line">echo &quot;开始推送博客源码&quot;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> update</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> message是commit的内容</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果没有接受到参数，默认为<span class="string">&quot;Hexo update&quot;</span></span></span><br><span class="line">message=&quot;Hexo update&quot;</span><br><span class="line">if [ $# ]</span><br><span class="line">then</span><br><span class="line">    message=$1</span><br><span class="line">fi</span><br><span class="line">git commit -am $message</span><br><span class="line">git push</span><br><span class="line"></span><br><span class="line">echo &quot;\\(￣︶￣*\\))&quot;</span><br></pre></td></tr></table></figure><h2 id="Typora"><a href="#Typora" class="headerlink" title="Typora"></a>Typora</h2><h3 id="尝试使用一下这个Markdown编辑器"><a href="#尝试使用一下这个Markdown编辑器" class="headerlink" title="尝试使用一下这个Markdown编辑器"></a>尝试使用一下这个Markdown编辑器</h3><p>Typora真好用，所见即所得</p>]]></content>
+    
+    
+    <summary type="html">&lt;img src=&quot;/2020/03/06/Hexo%E9%83%A8%E7%BD%B2%E5%B9%B6%E4%BF%9D%E5%AD%98%E5%8D%9A%E5%AE%A2%E6%BA%90%E4%BB%A3%E7%A0%81/actions.png&quot; class=&quot;&quot; title=&quot;actions&quot;&gt;
+&lt;p&gt;尝试使用更简单的博客部署方式&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="cs" scheme="https://hlapse.top/categories/cs/"/>
+    
+    <category term="杂七杂八" scheme="https://hlapse.top/categories/cs/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"/>
+    
+    
+    <category term="Shell" scheme="https://hlapse.top/tags/Shell/"/>
+    
+    <category term="hexo" scheme="https://hlapse.top/tags/hexo/"/>
+    
+    <category term="Github Actions" scheme="https://hlapse.top/tags/Github-Actions/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数学</title>
+    <link href="https://hlapse.top/2020/02/22/%E6%95%B0%E5%AD%A6/"/>
+    <id>https://hlapse.top/2020/02/22/%E6%95%B0%E5%AD%A6/</id>
+    <published>2020-02-22T05:37:04.000Z</published>
+    <updated>2021-04-20T11:17:07.412Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>大体规划</p><a id="more"></a><h2 id="高数"><a href="#高数" class="headerlink" title="高数"></a>高数</h2><p>刷视频课程：</p><ul><li>汤家凤老师的《大学数学同步课程》</li><li>高昆仑老师的课可以过一遍课本</li></ul><p>基础课程内容</p><p>汤老师的课</p><p>书</p><ul><li>《接力题典1800》</li></ul><p>先做基础篇与入门篇</p><h2 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h2><p>视频课程</p><ul><li>李永乐基础课程</li></ul><h3 id="线性代数学习经验"><a href="#线性代数学习经验" class="headerlink" title="线性代数学习经验"></a><a href="https://www.zhihu.com/question/36282065">线性代数学习经验</a></h3><h4 id="线性代数内容三大块"><a href="#线性代数内容三大块" class="headerlink" title="线性代数内容三大块"></a>线性代数内容三大块</h4><ol><li>行列式与矩阵</li><li>n维向量与线性方程组</li><li>特征值特征向量与二次型</li></ol><p><code>以上三块内容每一块都环环相扣，前一块是后一块的基础，后一块需要以前一块为根基进行学习，必须一步一个脚印，把每一块学好，不要落下中间任何一块，这样方能把这门课彻底吃下。</code></p><p>就这样吧，不是很难</p><h3 id="线性代数的本质"><a href="#线性代数的本质" class="headerlink" title="线性代数的本质"></a><a href="https://www.bilibili.com/video/av5987715/">线性代数的本质</a></h3><p>对理解有很大帮助</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;大体规划&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="考研" scheme="https://hlapse.top/categories/%E8%80%83%E7%A0%94/"/>
+    
+    <category term="数学" scheme="https://hlapse.top/categories/%E8%80%83%E7%A0%94/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+    <category term="考研" scheme="https://hlapse.top/tags/%E8%80%83%E7%A0%94/"/>
+    
+    <category term="数学" scheme="https://hlapse.top/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>纪念——Florence</title>
+    <link href="https://hlapse.top/2020/02/17/%E7%BA%AA%E5%BF%B5%E2%80%94%E2%80%94Florence/"/>
+    <id>https://hlapse.top/2020/02/17/%E7%BA%AA%E5%BF%B5%E2%80%94%E2%80%94Florence/</id>
+    <published>2020-02-17T12:47:29.000Z</published>
+    <updated>2021-04-20T11:17:07.412Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>Florence登陆PC了，我的天！！！眼泪都快出来了！！！</p><img src="/2020/02/17/%E7%BA%AA%E5%BF%B5%E2%80%94%E2%80%94Florence/Florence.jpg" class="" title="Florence"><p>这是一款emm……治愈系恋爱游戏<br>一个关于爱与生活的故事</p><a id="more"></a><hr><p>先是在<a href="https://www.gog.com/game/florence">GOG</a>看到的，还以为看错了，然后在<a href="https://store.steampowered.com/app/1102130/Florence/">steam</a>上搜索了一下，才发现没看错，搜索了一下才知道这款游戏2月14号（情人节 ￣へ￣）在多平台登陆，就是在最近几天！！！</p><p>大概是一年半前吧，很偶然看到Florence</p><p>一部互动故事书，出自《纪念碑谷》设计师之手，所以也很心动</p><p>那时登陆到了<a href="https://apps.apple.com/sg/app/florence/id1297430468?l=zh">App Store</a>，在<a href="https://play.google.com/store/apps/details?id=com.mountains.feathertop&hl=zh">Google Play</a>也可以付费下载玩到</p><p>可是穷啊，也不能在Play商店购买(没有国外付款方式)</p><p>历尽千辛万苦之后下载到了破解版，大概可能花了几天时间吧，很多下载渠道都很坑爹，没有一个能玩的，但最终还是找到了</p><p>无奈又无助！</p><h3 id="游戏的流程不长，10分钟左右可以通关"><a href="#游戏的流程不长，10分钟左右可以通关" class="headerlink" title="游戏的流程不长，10分钟左右可以通关"></a>游戏的流程不长，10分钟左右可以通关</h3><p>但也是满满的回忆</p><h3 id="官方游戏介绍"><a href="#官方游戏介绍" class="headerlink" title="官方游戏介绍"></a>官方游戏介绍</h3><p>《Florence》是一本互动故事书，出自备受赞誉的《纪念碑谷》首席设计师之手，将一个女孩的初恋故事里令人心跳加速的高潮和令人心碎的低谷娓娓道来。</p><p>Florence Yeoh感觉有点…困惑。她的生活是日复一日地工作、睡觉，以及在社交媒体上打发大量时间。直到有一天，她遇到了一位名叫Krish的大提琴手，他改变了她眼中的整个世界，也改变了她。</p><p>通过一系列小游戏串起的情节场景，从调情到吵架，从互助成长到逐渐分歧，玩家将体验Florence与Krish这段感情的点点滴滴。《Florence》的灵感来源于”Slice of Life”漫画小说和网络漫画，讲述了一个私密又难忘的爱情故事。</p><h3 id="游戏预告片"><a href="#游戏预告片" class="headerlink" title="游戏预告片"></a>游戏预告片</h3><video src="/2020/02/17/%E7%BA%AA%E5%BF%B5%E2%80%94%E2%80%94Florence/florence.mp4" height="460px" width="460px" controls="controls">Your browser does not support the video tag.</video><h3 id="steam商店版"><a href="#steam商店版" class="headerlink" title="steam商店版"></a>steam商店版</h3><video src="/2020/02/17/%E7%BA%AA%E5%BF%B5%E2%80%94%E2%80%94Florence/florencesteam.webm" width="460px" controls="controls">Your browser does not support the video tag.</video><h3 id="游戏画面风格和音乐同样出彩"><a href="#游戏画面风格和音乐同样出彩" class="headerlink" title="游戏画面风格和音乐同样出彩"></a>游戏画面风格和音乐同样出彩</h3><img src="/2020/02/17/%E7%BA%AA%E5%BF%B5%E2%80%94%E2%80%94Florence/style.jpg" width="460px">]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;Florence登陆PC了，我的天！！！眼泪都快出来了！！！&lt;/p&gt;
+&lt;img src=&quot;/2020/02/17/%E7%BA%AA%E5%BF%B5%E2%80%94%E2%80%94Florence/Florence.jpg&quot; class=&quot;&quot; title=&quot;Florence&quot;&gt;
+&lt;p&gt;这是一款emm……治愈系恋爱游戏&lt;br&gt;一个关于爱与生活的故事&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="分享" scheme="https://hlapse.top/categories/%E5%88%86%E4%BA%AB/"/>
+    
+    <category term="游戏" scheme="https://hlapse.top/categories/%E5%88%86%E4%BA%AB/%E6%B8%B8%E6%88%8F/"/>
+    
+    
+    <category term="纪念" scheme="https://hlapse.top/tags/%E7%BA%AA%E5%BF%B5/"/>
+    
+    <category term="wow！" scheme="https://hlapse.top/tags/wow%EF%BC%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IMH</title>
+    <link href="https://hlapse.top/2020/02/14/IMH/"/>
+    <id>https://hlapse.top/2020/02/14/IMH/</id>
+    <published>2020-02-14T13:05:30.000Z</published>
+    <updated>2021-04-20T11:17:07.412Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><img src="/2020/02/14/IMH/IMH.jpg" class="" title="Florence"><p>网易云音乐歌单竟然也可以用</p><a id="more"></a>    <div id="aplayer-cXAHkFlf" class="aplayer aplayer-tag-marker meting-tag-marker"         data-id="2892590764" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="false" data-listmaxheight="500px" data-preload="none" data-theme="#ad7a86"    ></div>]]></content>
+    
+    
+    <summary type="html">&lt;img src=&quot;/2020/02/14/IMH/IMH.jpg&quot; class=&quot;&quot; title=&quot;Florence&quot;&gt;
+&lt;p&gt;网易云音乐歌单竟然也可以用&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="音乐" scheme="https://hlapse.top/tags/%E9%9F%B3%E4%B9%90/"/>
+    
+    <category term="歌单" scheme="https://hlapse.top/tags/%E6%AD%8C%E5%8D%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2019苹果秋季发布会开场动画</title>
+    <link href="https://hlapse.top/2020/02/07/2019%E8%8B%B9%E6%9E%9C%E7%A7%8B%E5%AD%A3%E5%8F%91%E5%B8%83%E4%BC%9A%E5%BC%80%E5%9C%BA%E5%8A%A8%E7%94%BB/"/>
+    <id>https://hlapse.top/2020/02/07/2019%E8%8B%B9%E6%9E%9C%E7%A7%8B%E5%AD%A3%E5%8F%91%E5%B8%83%E4%BC%9A%E5%BC%80%E5%9C%BA%E5%8A%A8%E7%94%BB/</id>
+    <published>2020-02-07T03:00:25.000Z</published>
+    <updated>2021-04-20T11:17:07.352Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><img src="/2020/02/07/2019%E8%8B%B9%E6%9E%9C%E7%A7%8B%E5%AD%A3%E5%8F%91%E5%B8%83%E4%BC%9A%E5%BC%80%E5%9C%BA%E5%8A%A8%E7%94%BB/Apple.jpg" class=""><a id="more"></a><p>这段动画浓浓的苹果风，巨流畅好看！！!</p><hr><video src="/2020/02/07/2019%E8%8B%B9%E6%9E%9C%E7%A7%8B%E5%AD%A3%E5%8F%91%E5%B8%83%E4%BC%9A%E5%BC%80%E5%9C%BA%E5%8A%A8%E7%94%BB/Wonderful_tools_%E2%80%94_Apple.mp4" controls="controls">Your browser does not support the video tag.</video><hr>]]></content>
+    
+    
+    <summary type="html">&lt;img src=&quot;/2020/02/07/2019%E8%8B%B9%E6%9E%9C%E7%A7%8B%E5%AD%A3%E5%8F%91%E5%B8%83%E4%BC%9A%E5%BC%80%E5%9C%BA%E5%8A%A8%E7%94%BB/Apple.jpg&quot; class=&quot;&quot;&gt;</summary>
+    
+    
+    
+    <category term="分享" scheme="https://hlapse.top/categories/%E5%88%86%E4%BA%AB/"/>
+    
+    <category term="视频" scheme="https://hlapse.top/categories/%E5%88%86%E4%BA%AB/%E8%A7%86%E9%A2%91/"/>
+    
+    
+    <category term="分享" scheme="https://hlapse.top/tags/%E5%88%86%E4%BA%AB/"/>
+    
+    <category term="视频" scheme="https://hlapse.top/tags/%E8%A7%86%E9%A2%91/"/>
+    
+    <category term="苹果" scheme="https://hlapse.top/tags/%E8%8B%B9%E6%9E%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Markdown 基本语法</title>
+    <link href="https://hlapse.top/2020/02/05/Markdown-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"/>
+    <id>https://hlapse.top/2020/02/05/Markdown-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</id>
+    <published>2020-02-05T08:17:10.000Z</published>
+    <updated>2021-04-20T11:17:07.412Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>这里是Markdown的一些基本语法以及学习的过程，实际上是一个练习与总结的文章</p><img src="/2020/02/05/Markdown-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/Markdown.jpg" class=""><a id="more"></a><hr><h2 id="1-Markdown是什么"><a href="#1-Markdown是什么" class="headerlink" title="1. Markdown是什么"></a>1. Markdown是什么</h2><p>Markdown是一种轻量级的标记语言，它以易读易写的纯文本形式编写<br>Markdown语言在2004由约翰·格鲁伯（英语：John Gruber）创建。<br>Markdown编写的文档可以导出HTML、Word、图像、PDF、Epub等多种格式的文档。<br>Markdown编写的文档后缀为 .md或 .markdown。  </p><h2 id="2-Markdown主要语法"><a href="#2-Markdown主要语法" class="headerlink" title="2. Markdown主要语法"></a>2. Markdown主要语法</h2><h3 id="2-1-标题"><a href="#2-1-标题" class="headerlink" title="2.1 标题"></a>2.1 标题</h3><p>使用# 号，可表示1-6级标题</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 一级标题</span></span><br><span class="line"><span class="section">## 二级标题</span></span><br><span class="line"><span class="section">### 三级标题</span></span><br><span class="line"><span class="section">#### 四级标题</span></span><br><span class="line"><span class="section">##### 五级标题</span></span><br><span class="line"><span class="section">###### 六级标题</span></span><br></pre></td></tr></table></figure><p>显示效果</p><ul><li><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1></li><li><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2></li><li><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3></li><li><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4></li><li><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5></li><li><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6></li></ul><h3 id="2-2-段落"><a href="#2-2-段落" class="headerlink" title="2.2 段落"></a>2.2 段落</h3><p>段落的前后要有空行，所谓的空行是指没有文字内容。若想在段内强制换行的方式是使用两个以上空格加上回车（引用中换行省略回车）。</p><h3 id="2-3-区块引用"><a href="#2-3-区块引用" class="headerlink" title="2.3 区块引用"></a>2.3 区块引用</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Markdown 区块引用是在段落开头使用&gt;符号，后面紧跟一个空格</span><br><span class="line"><span class="quote">&gt; a</span></span><br><span class="line"><span class="quote">&gt; b</span></span><br><span class="line"><span class="quote">&gt; c</span></span><br><span class="line">区块是可以嵌套的</span><br><span class="line"><span class="quote">&gt; a</span></span><br><span class="line">&gt;&gt; a.1</span><br><span class="line">&gt;&gt;&gt; a.2</span><br><span class="line">也可以在列表中使用区块</span><br></pre></td></tr></table></figure><p>显示效果  </p><blockquote><p>a<br>b<br>c<br>a</p><blockquote><p>a.1</p><blockquote><p>a.2</p></blockquote></blockquote></blockquote><h3 id="2-4-代码"><a href="#2-4-代码" class="headerlink" title="2.4 代码"></a>2.4 代码</h3><p>一个函数或片段的代码可以用反引号把它包起来(`),例如定义一个函数<br><code>def fun():</code><br>使用```包裹一段代码指定语言（也可以不指定）</p><blockquote><p>```c<br>void main()<br>{<br>printf(“Hello, Markdown.”);<br>}<br>```</p></blockquote><p>显示效果  </p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">&quot;Hello, Markdown.&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="2-5-强调和斜体"><a href="#2-5-强调和斜体" class="headerlink" title="2.5 强调和斜体"></a>2.5 强调和斜体</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="emphasis">*斜体*</span></span><br><span class="line"><span class="strong">**粗体**</span></span><br></pre></td></tr></table></figure><p>显示效果<br><em>斜体</em><br><strong>粗体</strong></p><h3 id="2-6-列表"><a href="#2-6-列表" class="headerlink" title="2.6 列表"></a>2.6 列表</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">使用·、+、或-标记无序列表，如</span><br><span class="line">-（+<span class="emphasis">*） 第一项</span></span><br><span class="line"><span class="emphasis">-（+*</span>） 第二项</span><br><span class="line">-（+<span class="emphasis">*） 第三项</span></span><br><span class="line"><span class="emphasis">注意：标记后面最少有一个_空格_或制表符。若不在引用区块中，必须和前方段落之间存在空行。 </span></span><br><span class="line"><span class="emphasis">有序列表的标记方式是将上述的符号换成数字,加`.`,如</span></span><br><span class="line"><span class="emphasis">1. 第一项</span></span><br><span class="line"><span class="emphasis">2. 第二项</span></span><br><span class="line"><span class="emphasis">3. 第三项</span></span><br></pre></td></tr></table></figure><p>显示效果  </p><blockquote><p>无序列表</p><ul><li>第一项</li><li>第二项</li><li>第三项  </li></ul></blockquote><p>有序列表</p><blockquote><ol><li>第一项</li><li>第二项</li><li>第三项</li></ol></blockquote><h3 id="2-7-分割线"><a href="#2-7-分割线" class="headerlink" title="2.7 分割线"></a>2.7 分割线</h3><p>分割线最常使用就是三个或以上*，还可以使用-和_。</p><p>显示效果</p><hr><h3 id="2-8-链接"><a href="#2-8-链接" class="headerlink" title="2.8 链接"></a>2.8 链接</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">行内式</span><br><span class="line">[<span class="string">链接名称</span>](<span class="link">链接地址</span>)</span><br><span class="line">或者</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">链接地址</span>&gt;</span></span></span><br><span class="line">例如</span><br><span class="line">这是[<span class="string">百度</span>](<span class="link">https://www.baidu.com/</span>)的链接</span><br><span class="line">或者</span><br><span class="line">(https://www.baidu.com/)</span><br></pre></td></tr></table></figure><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">参考式</span><br><span class="line">也可使用变量来代替，文章末尾给出变量地址：</span><br><span class="line">这里使用google作为变量[<span class="string">Google</span>](<span class="link">google</span>)</span><br><span class="line">   [google]: https://google.com/</span><br></pre></td></tr></table></figure><p>显示效果  </p><blockquote><p>这是<a href="https://www.baidu.com/">百度</a>的链接<br>(<a href="https://www.baidu.com/)">https://www.baidu.com/)</a>  </p></blockquote><h3 id="2-9-图片"><a href="#2-9-图片" class="headerlink" title="2.9 图片"></a>2.9 图片</h3><p>添加图片的形式和链接相似，只需在链接的基础上前方加一个！。</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">百度</span>](<span class="link">//www.baidu.com/img/bd_logo1.png?qua=high</span>)</span><br></pre></td></tr></table></figure><p>显示效果  </p><p><img src="//www.baidu.com/img/bd_logo1.png?qua=high" alt="百度"></p><h3 id="2-10-表格"><a href="#2-10-表格" class="headerlink" title="2.10 表格"></a>2.10 表格</h3>   <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">| 左左对齐 | 右右对齐 | 居中中对齐 |</span><br><span class="line">| :----- | -----:| :----: |</span><br><span class="line">| 单元格 | 单元格 | 单元格 |</span><br><span class="line">| 单元格 | 单元格 | 单元格 |</span><br></pre></td></tr></table></figure><p>   显示效果  </p><table><thead><tr><th align="left">左左对齐</th><th align="right">右右对齐</th><th align="center">居中中对齐</th></tr></thead><tbody><tr><td align="left">单元格</td><td align="right">单元格</td><td align="center">单元格</td></tr><tr><td align="left">单元格</td><td align="right">单元格</td><td align="center">单元格</td></tr></tbody></table><h2 id="3-高级技巧（基本不会用到）"><a href="#3-高级技巧（基本不会用到）" class="headerlink" title="3. 高级技巧（基本不会用到）"></a>3. 高级技巧（基本不会用到）</h2><h3 id="3-1-支持HTML（插入视频、音乐）"><a href="#3-1-支持HTML（插入视频、音乐）" class="headerlink" title="3.1 支持HTML（插入视频、音乐）"></a>3.1 支持HTML（插入视频、音乐）</h3><h3 id="3-2-转义"><a href="#3-2-转义" class="headerlink" title="3.2 转义"></a>3.2 转义</h3><h3 id="3-3-公式"><a href="#3-3-公式" class="headerlink" title="3.3 公式"></a>3.3 公式</h3><h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h2><p>这是我第一篇用Markdown写出来的文章，也是第一篇博客，格式与一些技巧都没有，整体上不是很美观，但对于自己也是一个练习与一次尝试。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;这里是Markdown的一些基本语法以及学习的过程，实际上是一个练习与总结的文章&lt;/p&gt;
+&lt;img src=&quot;/2020/02/05/Markdown-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/Markdown.jpg&quot; class=&quot;&quot;&gt;</summary>
+    
+    
+    
+    <category term="cs" scheme="https://hlapse.top/categories/cs/"/>
+    
+    <category term="语言" scheme="https://hlapse.top/categories/cs/%E8%AF%AD%E8%A8%80/"/>
+    
+    
+    <category term="Markdown" scheme="https://hlapse.top/tags/Markdown/"/>
+    
+    <category term="语法" scheme="https://hlapse.top/tags/%E8%AF%AD%E6%B3%95/"/>
+    
+  </entry>
+  
+</feed>
